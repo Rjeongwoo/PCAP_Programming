@@ -56,7 +56,7 @@ void got_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *pa
         printf("   Checksum: 0x%04x\n", ntohs(tcp->tcp_sum));
         printf("   Urgent Pointer: %d\n", ntohs(tcp->tcp_urp));
         
-        // 메시지 출력 (역량에 따라 구현)
+        // 메시지 출력
         int tcp_header_len = TH_OFF(tcp) * 4;
         int ip_total_len = ntohs(ip->iph_len);
         int payload_length = ip_total_len - ip_header_len - tcp_header_len;
